@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
@@ -23,11 +23,14 @@ const Header = () => {
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/blog">Blog</Nav.Link>
                             </Nav>
-                            <Nav>
+                            <Nav className='align-items-md-center'>
                                 {
-                                    user && <Nav.Link href="#profile">
-                                        <FaUserCircle style={{ fontSize: '2rem' }} />
-                                    </Nav.Link>
+                                    user && <Image 
+                                        style={{ width: '40px', height: '40px' }} 
+                                        src={user.photoURL} 
+                                        title={user.displayName} 
+                                        roundedCircle 
+                                    />
                                 }
                                 {
                                     user ?

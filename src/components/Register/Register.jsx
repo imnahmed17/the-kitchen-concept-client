@@ -1,15 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [accepted, setAccepted] = useState(false);
+    const [show, setShow] = useState(false);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserData } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
+        setSuccess('');
+        setError('');
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
@@ -17,14 +22,32 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo, email, password);
 
+        if (password.length > 6) {
+            setError('Password should be less than 6 characters');
+            return;
+        }
+
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                setError('');
+                setSuccess('User has been created successfully');
+                updateUserData(result.user, name, photo)
+                    .then(() => {
+                        console.log('User name and photo updated');
+                    })
+                    .catch(error => {
+                        setError(error.message);
+                    })
+                form.reset();
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error.message);
+                setError(error.message);
             })
+
+        
     };
 
     const handleAccepted = event => {
@@ -32,41 +55,54 @@ const Register = () => {
     };
 
     return (
-        <Container className='w-25 mx-auto'>
-            <h3>Please Register</h3>
-            <Form onSubmit={handleRegister}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Your Name" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name='photo' placeholder="Photo URL" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check 
-                        onClick={handleAccepted} 
-                        type="checkbox" 
-                        name="accept" 
-                        label={<>I accept the <Link to="/terms" style={{ textDecoration: 'none' }}>Terms and Conditions</Link></>} 
-                    />
-                </Form.Group>
-                <Button variant="primary" type="submit" disabled={!accepted}>Register</Button>
-                <br />
-                <Form.Text className="text-secondary">
-                    Already Have an Account? <Link to="/login">Login</Link>
-                </Form.Text>
-                <Form.Text className="text-success"></Form.Text>
-                <Form.Text className="text-danger"></Form.Text>
-            </Form>
+        <Container className='mx-auto'>
+            <Row>
+                <Col md={3} lg={4}></Col>
+                <Col md={6} lg={4}>
+                    <h3>Please Register</h3>
+                    <Form onSubmit={handleRegister}>
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" name='name' placeholder="Your Name" required />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPhoto">
+                            <Form.Label>Photo URL</Form.Label>
+                            <Form.Control type="text" name='photo' placeholder="Photo URL" required />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" name='email' placeholder="Enter email" required />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type={show ? "text" : "password"} name='password' placeholder="Password" required />
+                            <p onClick={() => setShow(!show)}>
+                                <small>
+                                    {
+                                        show ? <span>Hide Password</span>: <span>Show Password</span>
+                                    }
+                                </small>
+                            </p>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                            <Form.Check 
+                                onClick={handleAccepted} 
+                                type="checkbox" 
+                                name="accept" 
+                                label={<>I accept the <Link to="/terms" style={{ textDecoration: 'none' }}>Terms and Conditions</Link></>} 
+                            />
+                        </Form.Group>
+                        <Button variant="primary" type="submit" disabled={!accepted} className='w-100'>Register</Button>
+                        <br />
+                        <Form.Text className="text-secondary">
+                            Already Have an Account? <Link to="/login">Login</Link>
+                        </Form.Text>
+                        <br />
+                        <Form.Text className="text-success">{success}</Form.Text>
+                        <Form.Text className="text-danger">{error}</Form.Text>
+                    </Form>
+                </Col>
+            </Row>
         </Container>
     );
 };
