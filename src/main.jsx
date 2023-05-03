@@ -10,6 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home/Home.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Blog from './components/Blog/Blog.jsx';
+import Login from './components/Login/Login.jsx';
+import Register from './components/Register/Register.jsx';
+import Terms from './components/Terms/Terms.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,18 @@ const router = createBrowserRouter([
       {
         path: 'blog',
         element: <Blog />
+      },
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'register',
+        element: <Register />
+      },
+      {
+        path: "terms",
+        element: <Terms />,
       }
     ]
   },
