@@ -9,7 +9,7 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
 
-    const { signIn, resetPassword, googleSignIn } = useContext(AuthContext);
+    const { signIn, resetPassword, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     // console.log('login page location', location);
@@ -66,7 +66,15 @@ const Login = () => {
     };
 
     const handleGithubSignIn = () => {
-        // githubSignIn()
+        githubSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                // console.log(error.message);
+                setError(error.message);
+            })
     };
 
     return (
