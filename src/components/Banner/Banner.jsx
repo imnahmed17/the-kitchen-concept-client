@@ -2,8 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Lottie from "lottie-react";
 import banner from '../../assets/banner.png';
-import tokens from '../../assets/plate.json';
-
+import plate from '../../assets/plate.json';
 
 const Banner = () => {
     return (
@@ -14,7 +13,7 @@ const Banner = () => {
                     <Col md={6}>
                         {/* Lottie Animation */}
                         <div className='d-flex justify-content-center'>
-                            <Lottie className='d-none d-md-block' style={{width: '250px'}} animationData={tokens} loop={true} />
+                            <Lottie className='d-none d-md-block' style={{width: '250px'}} animationData={plate} loop={true} />
                         </div>
                         <div className='mt-3'>
                             <h1 className='text-danger text-center'>Healthy Food Items </h1>
