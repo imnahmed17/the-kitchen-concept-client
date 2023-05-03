@@ -5,7 +5,7 @@ const Blog = () => {
     return (
         <Container>
             <Row className="justify-content-center">
-                <Col md={8}>
+                <Col lg={8}>
                     <Card className="my-4">
                         <Card.Body>
                             <Card.Title>Tell us the differences between uncontrolled and controlled components.</Card.Title>

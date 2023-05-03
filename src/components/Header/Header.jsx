@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,8 +21,12 @@ const Header = () => {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mx-auto">
-                                <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="/blog">Blog</Nav.Link>
+                                <li className='me-3'>
+                                    <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>Home</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
+                                </li>
                             </Nav>
                             <Nav className='align-items-md-center'>
                                 {/* user image */}
