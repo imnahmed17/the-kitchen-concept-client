@@ -39,6 +39,22 @@ const Login = () => {
 
     
 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                // console.log(error.message);
+                setError(error.message);
+            })
+    };
+
+    const handleGithubSignIn = () => {
+        // githubSignIn()
+    };
+
     return (
         <Container className='mx-auto'>
             <Row>
