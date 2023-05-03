@@ -17,6 +17,7 @@ const Header = () => {
             <Container>
                 <Navbar collapseOnSelect expand="md">
                     <Container>
+                        <Navbar.Brand href="/" className='fw-semibold fs-4'>Kitchen Concept</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mx-auto">
