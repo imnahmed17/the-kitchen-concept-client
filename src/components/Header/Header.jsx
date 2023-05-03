@@ -50,7 +50,6 @@ const Header = () => {
                     </Container>
                 </Navbar>
             </Container>
-            <hr className='mt-0' />
         </div>
         
     );

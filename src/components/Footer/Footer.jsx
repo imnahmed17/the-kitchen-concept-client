@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 const Footer = () => {
     return (
         <div className='mt-5 bg-dark text-light'>
-            <footer className='py-5'>
+            <footer className='pt-5'>
                 <Container>
                     <Row>
                         <Col lg={3} sm={12}>
@@ -47,10 +47,15 @@ const Footer = () => {
                             <p>123 Kitchen Street<br/>City, State ZIP<br/>Phone: 555-555-5555<br/>Email: info@kitchenconcept.com</p>
                         </Col>
                     </Row>
-                    <div className='d-flex flex-column flex-md-row justify-content-between text-center'>
-                        <p><small>@2023 <span className='fw-bold'>Kitchen Concept</span>. All Rights Reserved</small></p>
-                        <p><small>Powered by <span className='fw-bold'>Kitchen Concept</span></small></p>
-                    </div>
+                    <Row>
+                        <Col lg={4}></Col>
+                        <Col lg={4}>
+                            <p className='text-center'><small>@2023 <span className='fw-bold'>Kitchen Concept</span>. All Rights Reserved</small></p>
+                        </Col>
+                        <Col lg={4}>
+                            <p className='text-center text-lg-end'><small>Powered by <span className='fw-bold'>Kitchen Concept</span></small></p>
+                        </Col>
+                    </Row>
                 </Container>
             </footer>
         </div>
