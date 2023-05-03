@@ -37,7 +37,21 @@ const Login = () => {
             })
     };
 
-    
+    const handleResetPassword = () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            alert('Please provide your email address');
+            return;
+        }
+        resetPassword(email)
+            .then(() => {
+                alert('Please check your email');
+            })
+            .catch(error => {
+                // console.log(error.message);
+                setError(error.message);
+            })
+    };
 
     const handleGoogleSignIn = () => {
         googleSignIn()

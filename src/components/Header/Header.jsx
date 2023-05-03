@@ -24,6 +24,7 @@ const Header = () => {
                                 <Nav.Link href="/blog">Blog</Nav.Link>
                             </Nav>
                             <Nav className='align-items-md-center'>
+                                {/* user image */}
                                 {
                                     user && <Image 
                                         style={{ width: '40px', height: '40px' }} 
@@ -32,6 +33,7 @@ const Header = () => {
                                         roundedCircle 
                                     />
                                 }
+                                {/* toggle between login and logout button */}
                                 {
                                     user ?
                                         <Nav.Link href="/">

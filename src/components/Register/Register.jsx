@@ -33,6 +33,7 @@ const Register = () => {
                 console.log(createdUser);
                 setError('');
                 setSuccess('User has been created successfully');
+                // set user name and photo
                 updateUserData(result.user, name, photo)
                     .then(() => {
                         console.log('User name and photo updated');
