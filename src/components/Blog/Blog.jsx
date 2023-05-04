@@ -1,19 +1,19 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import Pdf from 'react-to-pdf';
+import ReactToPdf from "react-to-pdf";
 
 const Blog = () => {
-    const ref = useRef();
+    const ref = React.createRef();
 
     return (
         <Container>
-            <Pdf targetRef={ref} filename="document.pdf">
+            <ReactToPdf targetRef={ref} filename="document.pdf">
 				{({ toPdf }) => (
-					<button onClick={toPdf} className="button">
-						Generate PDF
-					</button>
-				)}
-			</Pdf>
+                    <div className='d-flex justify-content-center'>
+                        <button onClick={toPdf} className="text-center">Generate PDF</button>
+                    </div>
+                )}
+			</ReactToPdf>
             <div ref={ref}>
                 <Row className="justify-content-center">
                     <Col lg={8}>

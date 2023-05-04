@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
-import { BiLike } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { BiLike } from 'react-icons/bi';
 
 const Chef = ({ chef }) => {
     const { _id, picture, chefName, yearOfExperience, noOfRecipes, likes } = chef;

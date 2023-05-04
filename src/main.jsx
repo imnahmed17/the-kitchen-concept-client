@@ -15,6 +15,7 @@ import Register from './components/Register/Register.jsx';
 import Terms from './components/Terms/Terms.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import ChefDetails from './components/ChefDetails/ChefDetails.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,12 +26,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/chefs')
+        loader: () => fetch('https://the-kitchen-concept-server-imnahmed17.vercel.app/chefs')
       },
       {
         path: '/chefs/:id',
-        element: <ChefDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        element: <PrivateRoute><ChefDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://the-kitchen-concept-server-imnahmed17.vercel.app/chefs/${params.id}`)
       },
       {
         path: 'blog',

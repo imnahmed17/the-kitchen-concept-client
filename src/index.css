@@ -9,6 +9,12 @@
 .justify {
     text-align: justify;
 }
+.cursor-pointer {
+    cursor: pointer;
+}
+.carousel {
+    max-width: fit-content;
+}
 .errorBtn {
     display: inline-block;
     padding: 0.5em 1em;
