@@ -20,10 +20,15 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+        const confirmPassword = form.confirmPassword.value;
+        console.log(name, photo, email, password, confirmPassword);
 
-        if (password.length > 6) {
-            setError('Password should be less than 6 characters');
+        if (password !== confirmPassword) {
+            setError('Password did not match');
+            return;
+        }
+        else if (password.length < 6) {
+            setError('Password should be greater than 6 characters');
             return;
         }
 
@@ -84,6 +89,10 @@ const Register = () => {
                                     }
                                 </small>
                             </p>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+                            <Form.Label>Confirm Password</Form.Label>
+                            <Form.Control type={show ? "text" : "password"} name='confirmPassword' placeholder="Confirm Password" required />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check 

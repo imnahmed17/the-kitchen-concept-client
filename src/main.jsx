@@ -14,6 +14,7 @@ import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import Terms from './components/Terms/Terms.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import ChefDetails from './components/ChefDetails/ChefDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Home />,
+        loader: () => fetch('http://localhost:5000/chefs')
+      },
+      {
+        path: '/chefs/:id',
+        element: <ChefDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
       },
       {
         path: 'blog',
