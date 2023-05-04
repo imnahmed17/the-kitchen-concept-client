@@ -3,7 +3,7 @@ import { Button, Card, CardGroup, Col } from 'react-bootstrap';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import toast, { Toaster } from 'react-hot-toast';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
 const Recipe = ({ recipe }) => {
     const [fold, setFold] = useState(true);
@@ -53,7 +53,9 @@ const Recipe = ({ recipe }) => {
                         </div>
                         <div>
                             <Button variant="light" onClick={handleClick} disabled={isDisabled}>
-                                <MdFavoriteBorder style={{ fontSize: '24px' }} />
+                                {
+                                    isDisabled ? <MdOutlineFavorite size={24} /> : <MdOutlineFavoriteBorder size={24} />
+                                }
                             </Button>
                             <Toaster />
                         </div>

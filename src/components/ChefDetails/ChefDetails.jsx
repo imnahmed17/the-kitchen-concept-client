@@ -1,12 +1,24 @@
-import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import Recipe from '../Recipe/Recipe';
+import { AuthContext } from '../../providers/AuthProvider';
 import { BiLike } from 'react-icons/bi';
 
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
     const { picture, chefName, yearOfExperience, noOfRecipes, recipes, likes } = chefDetails;
+
+    const { loading } = useContext(AuthContext);
+
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+                <Spinner animation="border" variant="primary" size="lg" />
+                <h3 className="ms-3">Loading...</h3>
+            </div>
+        );
+    }
 
     return (
         <Container>
