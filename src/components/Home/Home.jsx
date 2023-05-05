@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Container, Row, Spinner } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Banner from '../Banner/Banner';
 import Counting from '../Counting/Counting';
 import Chef from '../Chef/Chef';
@@ -9,6 +9,7 @@ import Recipes from '../Recipes/Recipes';
 import Feedbacks from '../Feedbacks/Feedbacks';
 import AboutUs from '../AboutUs/AboutUs';
 import useTitle from '../../hooks/useTitle';
+import FindUs from '../FindUs/FindUs';
 
 const Home = () => {
     const allChefs = useLoaderData();
@@ -64,6 +65,12 @@ const Home = () => {
             <section className='mt-5'>
                 <Container className='pt-4'>
                     <AboutUs />
+                </Container>
+            </section>
+
+            <section className='mt-5'>
+                <Container>
+                    <FindUs />
                 </Container>
             </section>
         </div>

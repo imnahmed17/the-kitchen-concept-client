@@ -36,3 +36,5 @@ Rating -> [react-rating](https://github.com/smastrom/react-rating)
 Lazy Load Image -> [react-lazy-load-image-component](https://www.npmjs.com/package/react-lazy-load-image-component)
 
 Print PDF -> [react-to-print](https://www.npmjs.com/package/react-to-print)
+
+Google map -> [react-google-maps-api](https://react-google-maps-api-docs.netlify.app)

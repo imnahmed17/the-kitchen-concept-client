@@ -7,7 +7,7 @@ const AboutUs = () => {
     return (
         <Row>
             <Col md={7} lg={6}>
-                <h2 className='text-center text-md-start fw-semibold mb-4'>About Us</h2>
+                <h2 className='text-center text-md-start fw-semibold mb-2'>About Us</h2>
                 <p className='justify'>
                     Welcome to Kitchen Concept, where we bring you the best of Italian cuisine from master chefs across the world. Our passion for cooking and food culture led us to create this website, where you can find authentic Italian recipes, cooking tips, and inspiration.  
                     <br />
