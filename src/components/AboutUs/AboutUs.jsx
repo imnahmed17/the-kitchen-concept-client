@@ -1,5 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const AboutUs = () => {
     return (
@@ -16,7 +18,15 @@ const AboutUs = () => {
             </Col>
             <Col lg={2} className='d-none d-lg-block'></Col>
             <Col md={5} lg={4}>
-                <img className='w-100 h-100' src="https://i.ibb.co/tCWnbXW/img9.png" alt="" />
+                <div className='h-100 d-flex align-items-center'>
+                    <LazyLoadImage 
+                        src="https://i.ibb.co/tCWnbXW/img9.png"
+                        style={{ width: '100%', height: '100%' }}
+                        effect="blur"
+                        threshold={40}
+                        alt=""
+                    />
+                </div>
             </Col>
         </Row>
     );

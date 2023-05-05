@@ -28,9 +28,11 @@ const Home = () => {
             <section>
                 <Banner />
             </section>
+            
             <section className='border border-2'>
                 <Counting />
             </section>
+            
             <section className='mt-5'>
                 <h2 className='text-center fw-semibold mb-4'>Our Master Chefs</h2>
                 <Container>
@@ -41,13 +43,14 @@ const Home = () => {
                     </Row>
                 </Container>
             </section>
+            
             <section className='mt-5'>
                 <h2 className='text-center fw-semibold mb-4'>Recipes</h2>
                 <Container>
                     <Recipes />
                 </Container>
             </section>
-
+            
             {/* <Container className='extra-section'>
                 <div>
                     <img className='w-100 h-100 im' src="https://i.ibb.co/cQ2j3cJ/img1.png" alt="" />

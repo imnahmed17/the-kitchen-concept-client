@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { BiLike } from 'react-icons/bi';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Chef = ({ chef }) => {
     const { _id, picture, chefName, yearOfExperience, noOfRecipes, likes } = chef;
@@ -9,7 +11,13 @@ const Chef = ({ chef }) => {
     return (
         <Col>
             <Card>
-                <Card.Img variant="top" src={picture} />
+                <LazyLoadImage 
+                    src={picture}
+                    style={{ width: '100%', height: '100%' }}
+                    effect="blur"
+                    threshold={40}
+                    alt=""
+                />
                 <Card.Body>
                     <Card.Title>{chefName}</Card.Title>
                     <Card.Text>
