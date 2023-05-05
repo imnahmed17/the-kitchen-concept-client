@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import Banner from '../Banner/Banner';
 import Counting from '../Counting/Counting';
-import { useLoaderData } from 'react-router-dom';
-import { Container, Row, Spinner } from 'react-bootstrap';
 import Chef from '../Chef/Chef';
-import { AuthContext } from '../../providers/AuthProvider';
 import Recipes from '../Recipes/Recipes';
-import AboutUs from '../AboutUs/AboutUs';
 import Feedbacks from '../Feedbacks/Feedbacks';
+import AboutUs from '../AboutUs/AboutUs';
 
 const Home = () => {
     const allChefs = useLoaderData();

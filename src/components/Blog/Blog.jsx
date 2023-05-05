@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import ReactToPdf from "react-to-pdf";
+import { useReactToPrint } from 'react-to-print';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Blog = () => {
-    const ref = React.createRef();
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'blog',
+        onAfterPrint: () => toast.success('Print successful')
+    });
 
     return (
         <Container>
-            <ReactToPdf targetRef={ref} filename="document.pdf">
-				{({ toPdf }) => (
-                    <div className='d-flex justify-content-center'>
-                        <button onClick={toPdf} className="text-center">Generate PDF</button>
-                    </div>
-                )}
-			</ReactToPdf>
-            <div ref={ref}>
+            <div className='d-flex justify-content-center'>
+                <Button onClick={handlePrint} className="text-center">Generate PDF</Button>
+                <Toaster />
+            </div>
+            <div ref={componentRef}>
                 <Row className="justify-content-center">
                     <Col lg={8}>
                         <Card className="my-4">
