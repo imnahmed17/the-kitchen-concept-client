@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
 import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
-import Recipe from '../Recipe/Recipe';
 import { AuthContext } from '../../providers/AuthProvider';
 import { BiLike } from 'react-icons/bi';
+import Recipe from '../Recipe/Recipe';
+import useTitle from '../../hooks/useTitle';
 
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
     const { picture, chefName, yearOfExperience, noOfRecipes, recipes, likes } = chefDetails;
 
     const { loading } = useContext(AuthContext);
+    useTitle('Chef');
 
     if (loading) {
         return (

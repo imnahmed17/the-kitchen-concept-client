@@ -8,12 +8,14 @@ import Chef from '../Chef/Chef';
 import Recipes from '../Recipes/Recipes';
 import Feedbacks from '../Feedbacks/Feedbacks';
 import AboutUs from '../AboutUs/AboutUs';
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
     const allChefs = useLoaderData();
     // console.log(allChefs);
 
     const { loading } = useContext(AuthContext);
+    useTitle('Home');
 
     if (loading) {
         return (

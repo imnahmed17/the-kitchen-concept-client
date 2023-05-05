@@ -2,9 +2,11 @@ import React, { useRef } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { useReactToPrint } from 'react-to-print';
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
     const componentRef = useRef();
+    useTitle('Blog');
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,

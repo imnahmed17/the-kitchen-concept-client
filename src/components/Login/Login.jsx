@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const [show, setShow] = useState(false);
@@ -15,6 +16,7 @@ const Login = () => {
     console.log('login page location', location);
     const from = location.state?.from?.pathname || '/';
     const emailRef = useRef();
+    useTitle('Login');
 
     const handleLogin = event => {
         event.preventDefault();
