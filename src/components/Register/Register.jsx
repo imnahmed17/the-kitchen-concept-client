@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
@@ -10,7 +10,8 @@ const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const { createUser, updateUserData } = useContext(AuthContext);
+    const { createUser, updateUserData, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
     useTitle('Register');
 
     const handleRegister = event => {
@@ -49,13 +50,13 @@ const Register = () => {
                         setError(error.message);
                     })
                 form.reset();
+                logOut();
+                // navigate("/login");
             })
             .catch(error => {
                 // console.log(error.message);
                 setError(error.message);
             })
-
-        
     };
 
     const handleAccepted = event => {

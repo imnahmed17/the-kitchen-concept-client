@@ -1,4 +1,4 @@
-# b7a10-chef-recipe-hunter-client-side-imnahmed17
+# the-kitchen-concept-client
 A simple React app built with React, React Router Dom & Firebase Authentication.
 
 ## Live Link
@@ -21,7 +21,7 @@ Hosted in Vercel -> [The Kitchen Concept Server](https://the-kitchen-concept-ser
 * every route is mobile and desktop responsive
 
 ## Resources & Credits
-Server GitHub Link -> [the-kitchen-concept-server](https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-imnahmed17)
+Server GitHub Link -> [the-kitchen-concept-server](https://github.com/imnahmed17/the-kitchen-concept-server)
 
 CSS Framework -> [react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
 
@@ -37,4 +37,4 @@ Lazy Load Image -> [react-lazy-load-image-component](https://www.npmjs.com/packa
 
 Print PDF -> [react-to-print](https://www.npmjs.com/package/react-to-print)
 
-Google map -> [react-google-maps-api](https://react-google-maps-api-docs.netlify.app)
+Map -> [react-leaflet](https://react-leaflet.js.org/docs/start-installation/)

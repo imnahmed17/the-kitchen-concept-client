@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import Banner from '../Banner/Banner';
 import Counting from '../Counting/Counting';
 import Chef from '../Chef/Chef';

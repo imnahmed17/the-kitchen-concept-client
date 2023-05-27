@@ -12,6 +12,9 @@
 .cursor-pointer {
     cursor: pointer;
 }
+.leaflet-container {
+    height: 55vh;
+}
 .errorBtn {
     display: inline-block;
     padding: 0.5em 1em;

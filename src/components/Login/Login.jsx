@@ -12,9 +12,11 @@ const Login = () => {
 
     const { signIn, resetPassword, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const saveAddress = localStorage.getItem('address') || '/';
     const location = useLocation();
     console.log('login page location', location);
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || saveAddress;
+    localStorage.setItem('address', from);
     const emailRef = useRef();
     useTitle('Login');
 
